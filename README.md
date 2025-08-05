@@ -1,5 +1,6 @@
 # LimonChat
 Limon Chat is a simple old-school messenger designed for old hard&amp;soft-ware
+NO RELEASES SO FAR! Will be avalible till end of summer!
 
 ## Info
 Made on C# & WinForms, .NET Framework 2 & 3.5
