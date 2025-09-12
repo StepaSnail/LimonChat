@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <style type="text/css">
+        body
+        {
+            background: #9b8fb0;
+            font-family:Tahoma;
+        }
+        table
+        {
+            background: #1eba02;
+            color:White;
+            
+            border: 5px double #000;
+        }
+        th
+        {
+        	background: #1eba02;
+            color:White;
+            padding: 5px;
+            border: 1px solid #FFF;
+        }
+        td
+        { 
+        	background: #ded13e;
+            color:Black;
+            padding: 5px;
+            border: 1px solid #000;
+        	
+        }
+    </style>
+    <title>Limon Chat protocol</title>
+</head>
+<body>
+<h1>Commands</h1>
+<h2>Client sends</h2>
+<table>
+		<tr>
+			<th>Name</th>
+			<th>Purpose</th>
+			<th>Arguments</th>
+			<th>Command example</th>
+		</tr>
+		<tr>
+			<td>Example</td>
+			<td>What, an example?</td>
+			<td>Args are separated with ¦ (ALT+0166)</td>
+			<td>NAME:arg1¦arg2</td>
+		</tr>
+		<tr>
+		<td>ERRREP</td><td>Report an exception/Error for bug hunting</td><td>When happend,Exception message</td><td>ERRREP:Login¦BufferOverflow</td>
+		</tr>
+		<tr>
+		<td>REGUSR</td><td>Register an user</td><td>UserName,PasswdHash,Email</td><td>REGUSR:UserName¦310BC8D5EB¦amail@box.org</td>
+		</tr>
+		<tr>
+			<td>LGIN</td>
+			<td>Login</td>
+			<td>UserName, Password Hash</td>
+			<td>LGIN:UserName¦PasswdHash</td>
+		</tr>
+		<tr>
+			<td>QUIT</td>
+			<td>Log out</td>
+			<td>None</td>
+			<td>QUIT:</td>
+		</tr>
+		<tr>
+		    <td>GETBDS</td>
+		    <td>Get a buddy list</td>
+		    <td>(BOOL)OnlineOnly</td>
+		    <td>GETBDS:true/false</td>
+		</tr>
+		<tr>
+		<td>ADDBUD</td><td>Add a buddy to list</td><td>UserName</td><td>ADDBUD:UserName</td>
+		</tr>
+		<tr>
+		<td>DELBUD</td><td>Delete a buddy from list</td><td>UserName</td><td>DELBUD:UserName</td>
+		</tr>
+		<tr>
+		<td>BEGCHT</td><td>Begin a chat</td><td>(INT)EncryptKey,UserName</td><td>BEGCHT:2344(ANY)¦UserName</td>
+		</tr>
+		<tr>
+		<td>SENMSG</td><td>Send a message</td><td>UserName,Message</td><td>SENMSG:UserName¦Hi this is an example</td>
+		</tr>
+		
+</table>
+<h2>Server sends</h2>
+<table>
+        <tr>
+		<td>ACTOK</td><td>Action OK; Command executed ok</td><td>Name of CMD</td><td>ACTOK:Name</td>
+		</tr>
+		<tr>
+		<td>ACTERR</td><td>Action Error; Command executed with an error</td><td>Name, Error</td><td>ACTERR:Name¦Error</td>
+		</tr>
+			<tr>
+		    <td>RECBHT</td>
+		    <td>Notify client about other client starting the chat</td>
+		    <td>(INT)EncrKey, Username</td>
+		    <td>RECBHT:EncrKey¦Username</td>
+		</tr>
+			<tr>
+		    <td>RECMSG</td>
+		    <td>Recieve a message</td>
+		    <td>UserName, Message</td>
+		    <td>RECMSG:UserName¦Message</td>
+		</tr>
+			<tr>
+		    <td>RECBDS</td>
+		    <td>Recieve a buddy list</td>
+		    <td>string[] buddies</td>
+		    <td>RECBDS:User1¦User2¦..</td>
+		</tr>
+		
+</table>
+<h2>Example sequence of login and use</h2>
+<pre>
+CL: LGIN:User¦310BC8D5EB
+SR: ACTOK:LGIN
+CL: GETBDS:true
+SR: RECBDS:user1¦user2...
+CL: BEGCHT:3874¦user1
+SR: ACTOK:BEGCHT
+CL: SENMSG:user1¦3946-3911-3931-3842-3904-3920-3917-3843-3842-3946-3917-3925-3842-3907-3920-3911-3842-3931-3917-3927-3869
+SR: ACTOK:SENMSG
+SR: RECMSG:user1¦3946-3911-3931-3843-3842-3947-3919-3842-3908-3915-3916-3911-3843
+</pre>
+</body>
+</html>
