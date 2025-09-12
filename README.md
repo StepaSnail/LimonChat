@@ -1,6 +1,6 @@
 # LimonChat
 Limon Chat is a simple old-school messenger designed for old hard&amp;soft-ware
-NO RELEASES SO FAR! Will be avalible till end of summer!
+NO RELEASES SO FAR! Will be avalible till end of time or this year!
 
 ## Info
 Made on C# & WinForms, .NET Framework 2 & 3.5
@@ -24,6 +24,10 @@ Build tools: Visual Studio 2008!
 - **Client** - Client itself imagine
 - **Server** - A server, wow
 - **Docs** - Internal documents, plans, sketches and stuff
+
+## Progress
+- Sometime.08.2025 Designed protocol
+- 12.09.2025 Made core and auth command
 
 ## Warning
 - Project is licensed under GPLv3
