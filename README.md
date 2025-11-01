@@ -26,9 +26,10 @@ Build tools: Visual Studio 2008!
 - **Docs** - Internal documents, plans, sketches and stuff
 
 ## Progress
+- 01.11.2025 Server done, universal client (WinCE & PC Windows)started
 - Sometime.08.2025 Designed protocol
 - 12.09.2025 Made core and auth command
 
 ## Warning
 - Project is licensed under GPLv3
-- Security is as good as a camera made of potato
+- Security is **still** as good as a camera made of potato
